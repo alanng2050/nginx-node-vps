@@ -31,3 +31,7 @@ systemctl restart nginx
 snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
 certbot --nginx
+
+# auto renew certbot
+# crontab -e
+# 0 12 * * * /usr/bin/certbot renew --quiet
