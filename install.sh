@@ -8,7 +8,7 @@ sudo su
 apt update
 
 # install node
-install -y ca-certificates curl gnupg
+apt install -y ca-certificates curl gnupg
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 
@@ -23,6 +23,7 @@ apt install nginx -y
 
 #add website config
 cat site.conf > /etc/nginx/sites-available/$1
+ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled
 systemctl restart nginx
 
 
